@@ -1,6 +1,8 @@
-import model.Block;
-import model.Colour;
-import model.Node;
+package com.eatech.puzzle.crypto;
+
+import com.eatech.puzzle.crypto.model.Block;
+import com.eatech.puzzle.crypto.model.Colour;
+import com.eatech.puzzle.crypto.model.Node;
 import org.junit.Test;
 
 import java.util.List;
@@ -36,7 +38,7 @@ public class PathBuilderTest {
     Node.build(Block.buildFor(4,2), firstLevelNode2);
 
 
-    PathBuilder<Block> pathBuilder = new PathBuilder<>(colours, root);
+    PathBuilder<Block> pathBuilder = new PathBuilder<>(root);
 
     List<List<Block>> paths = pathBuilder.build();
 
@@ -64,7 +66,7 @@ public class PathBuilderTest {
     Node.build(4, firstLevelNode1);
     Node.build(5, firstLevelNode1);
 
-    PathBuilder pathBuilder = new PathBuilder(colours, root);
+    PathBuilder pathBuilder = new PathBuilder(root);
 
     List<List<Integer>> paths = pathBuilder.build();
 
@@ -92,7 +94,7 @@ public class PathBuilderTest {
     Node.build(3, secondLevelNode);
     Node.build(4, secondLevelNode);
 
-    PathBuilder pathBuilder = new PathBuilder(colours, root);
+    PathBuilder pathBuilder = new PathBuilder(root);
 
     List<List<Integer>> paths = pathBuilder.build();
 

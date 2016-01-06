@@ -1,3 +1,5 @@
+package com.eatech.puzzle.crypto;
+
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package model;
+package com.eatech.puzzle.crypto.model;
 
 /**
  * Created by jameseaton@hotmail.com

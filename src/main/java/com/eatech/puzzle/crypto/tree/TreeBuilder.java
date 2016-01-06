@@ -1,6 +1,8 @@
-import model.Block;
-import model.Colour;
-import model.Node;
+package com.eatech.puzzle.crypto.tree;
+
+import com.eatech.puzzle.crypto.model.Block;
+import com.eatech.puzzle.crypto.model.Colour;
+import com.eatech.puzzle.crypto.model.Node;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -78,10 +80,10 @@ public class TreeBuilder {
   }
 
 
- /* private final Board board;
+ /* private final com.eatech.puzzle.crypto.Board board;
   private final List<List<Colour[]>> xCombinations;
 
-  public TreeBuilder(final Board board) {
+  public com.eatech.puzzle.crypto.tree.TreeBuilder(final com.eatech.puzzle.crypto.Board board) {
     this.board = board;
     this.xCombinations = generateCombinations(board.getXCombinations());
   }

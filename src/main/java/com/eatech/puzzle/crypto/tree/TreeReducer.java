@@ -1,6 +1,8 @@
-import model.Block;
-import model.Colour;
-import model.Node;
+package com.eatech.puzzle.crypto.tree;
+
+import com.eatech.puzzle.crypto.model.Block;
+import com.eatech.puzzle.crypto.model.Colour;
+import com.eatech.puzzle.crypto.model.Node;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -21,8 +23,8 @@ public class TreeReducer {
 
   }
 
-  private Node<Block> reduce(final Node<Block> tree, final Colour[] colours) {
-    List<Integer> positions = getColourPositions(colours);
+  private Node<Block> reduce(final Node<Block> tree, List<Integer> positions ) {
+   // List<Integer> positions = getColourPositions(colours);
 
 
 

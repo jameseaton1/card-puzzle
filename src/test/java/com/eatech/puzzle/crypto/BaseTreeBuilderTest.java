@@ -1,5 +1,7 @@
-import model.Block;
-import model.Node;
+package com.eatech.puzzle.crypto;
+
+import com.eatech.puzzle.crypto.model.Block;
+import com.eatech.puzzle.crypto.model.Node;
 import org.hamcrest.BaseMatcher;
 import org.hamcrest.Description;
 

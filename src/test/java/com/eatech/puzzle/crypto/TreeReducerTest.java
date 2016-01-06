@@ -1,6 +1,10 @@
-import model.Block;
-import model.Colour;
-import model.Node;
+package com.eatech.puzzle.crypto;
+
+import com.eatech.puzzle.crypto.model.Block;
+import com.eatech.puzzle.crypto.model.Colour;
+import com.eatech.puzzle.crypto.model.Node;
+import com.eatech.puzzle.crypto.tree.TreeBuilder;
+import com.eatech.puzzle.crypto.tree.TreeReducer;
 import org.junit.Test;
 
 import java.util.List;
@@ -47,7 +51,7 @@ public class TreeReducerTest extends BaseTreeBuilderTest {
     tree = treeReducer.getTree();
     assertEquals(1, tree.getChildren().size());
 
-    assertThat(tree.getChildren().get(0), hasChildrenPosition(4));
+    assertThat(tree.getChildren().stream().findFirst().get(), hasChildrenPosition(4));
 
 
   }

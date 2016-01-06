@@ -1,4 +1,6 @@
-import model.Colour;
+package com.eatech.puzzle.crypto;
+
+import com.eatech.puzzle.crypto.model.Colour;
 
 import java.io.IOException;
 import java.net.URISyntaxException;

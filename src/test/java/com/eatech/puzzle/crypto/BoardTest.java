@@ -1,3 +1,5 @@
+package com.eatech.puzzle.crypto;
+
 import org.junit.Test;
 
 import java.util.stream.IntStream;
@@ -42,19 +44,19 @@ public class BoardTest {
   /*
   @Test
   public void getRow() {
-    Board board = new Board();
+    com.eatech.puzzle.crypto.Board board = new com.eatech.puzzle.crypto.Board();
     Assert.assertEquals("Row is 25", 25, board.getRow(1).length);
   }
 
   @Test
   public void getColumn() {
-    Board board = new Board();
+    com.eatech.puzzle.crypto.Board board = new com.eatech.puzzle.crypto.Board();
     Assert.assertEquals("Row is 25", 25, board.getColumn(1).length);
   }
 
   @Test
   public void setColour() {
-    Board board = new Board();
+    com.eatech.puzzle.crypto.Board board = new com.eatech.puzzle.crypto.Board();
     board.setColour(0, 0, Colour.BLACK);
     Assert.assertEquals("Square set to black", board.getColumn(0)[0] = Colour.BLACK) ;
   }
@@ -62,14 +64,14 @@ public class BoardTest {
   /*
   @Test
   public void boardSize() {
-    Board board = new Board();
+    com.eatech.puzzle.crypto.Board board = new com.eatech.puzzle.crypto.Board();
     assertEquals("The size of the board should be 626", 25 * 25, board.getSquares().size());
   }
 
   @Test
   public void boardShouldContainCorrectBlackSquares(){
-    Board board = new Board();
-    buildBlackSquares().stream().forEach(x-> Assert.assertTrue("Board Contains Black Square", board.getSquares().contains(x)));
+    com.eatech.puzzle.crypto.Board board = new com.eatech.puzzle.crypto.Board();
+    buildBlackSquares().stream().forEach(x-> Assert.assertTrue("com.eatech.puzzle.crypto.Board Contains Black Square", board.getSquares().contains(x)));
   }
 
   private Set<Square> buildBlackSquares() {

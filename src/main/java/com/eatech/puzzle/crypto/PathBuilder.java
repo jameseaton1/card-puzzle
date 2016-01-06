@@ -1,4 +1,6 @@
-import model.Node;
+package com.eatech.puzzle.crypto;
+
+import com.eatech.puzzle.crypto.model.Node;
 
 import java.util.ArrayList;
 import java.util.Collections;

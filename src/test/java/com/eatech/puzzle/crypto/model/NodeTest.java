@@ -1,9 +1,9 @@
-package model;
+package com.eatech.puzzle.crypto.model;
 
 import org.junit.Test;
 
-import static model.Colour.BLACK;
-import static model.Colour.WHITE;
+import static com.eatech.puzzle.crypto.model.Colour.BLACK;
+import static com.eatech.puzzle.crypto.model.Colour.WHITE;
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
@@ -41,7 +41,7 @@ public class NodeTest {
     assertThat(tree.getChildren(), hasItem(node3));
 
     //Test the parent
-    assertEquals(tree, tree.getChildren().get(0).getParent().get());
+    assertEquals(tree, tree.getChildren().stream().findFirst().get().getParent().get());
 
   }
 
