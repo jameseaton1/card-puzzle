@@ -20,7 +20,13 @@ public class BaseTreeBuilderTest {
   }
 
 
-  protected BaseMatcher<Node> hasChildrenPosition(int position) {
+  /**
+   * Does a node having a child containing a block with that position
+   *
+   * @param position
+   * @return
+   */
+  protected BaseMatcher<Node> hasChildPosition(int position) {
     return new BaseMatcher<Node>() {
       @Override
       public boolean matches(final Object item) {

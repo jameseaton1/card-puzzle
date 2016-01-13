@@ -40,7 +40,6 @@ public class TreeBuilder {
     int paddingOfRemainingPieces = (int) combinations.stream().mapToInt(x->x).count() * PADDING_LENGTH;
     int possibleLocations = factorial(length - lengthOfRemainingPieces - paddingOfRemainingPieces) / factorial(blockSize);
 
-
     int currentTreeLength = calculateCurrentTreeLength(tree);
 
     for(int location = currentTreeLength; location < possibleLocations + currentTreeLength; location++) {
@@ -62,10 +61,7 @@ public class TreeBuilder {
     }
   }
 
-
-
   public Node<Block> getTree() {
-
     return tree;
   }
 
@@ -75,41 +71,7 @@ public class TreeBuilder {
     for (int i = 2; i < n; i++) {
       product *= i;
     }
-    System.out.println("Factorial result: " + product);
     return product;
   }
 
-
- /* private final com.eatech.puzzle.crypto.Board board;
-  private final List<List<Colour[]>> xCombinations;
-
-  public com.eatech.puzzle.crypto.tree.TreeBuilder(final com.eatech.puzzle.crypto.Board board) {
-    this.board = board;
-    this.xCombinations = generateCombinations(board.getXCombinations());
-  }
-
-  private List<List<Colour[]>> generateCombinations(final List<List<Integer>> combinations) {
-    return combinations.stream().map(this::generateColourCombinations).collect(Collectors.toList());
-  }
-
-  private List<Colour[]> generateColourCombinations(final List<Integer> values) {
-    // Calculate of many for positions for first
-    // Size required for other combinations = sum(1..n) + (n-1) --size of the pieces together + minimum gap between
-
-    int length = values.get(0);
-    int lengthOfRemainingPieces = values.stream().mapToInt(x->x).sum() - length;
-    int paddingOfRemainingPieces = (int)(values.stream().mapToInt(x->x).count() -1);
-    int possibleLocations = board.getBoardSize() - lengthOfRemainingPieces - paddingOfRemainingPieces;
-
-    for (int location = 0; location < possibleLocations; location++) {
-
-    }
-
-
-    return null;
-  }
-
-  public List<Colour[]> getXCombinations(final int x) {
-    return null;
-  }*/
 }

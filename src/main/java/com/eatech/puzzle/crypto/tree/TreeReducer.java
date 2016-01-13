@@ -1,5 +1,6 @@
 package com.eatech.puzzle.crypto.tree;
 
+import com.eatech.puzzle.crypto.PathBuilder;
 import com.eatech.puzzle.crypto.model.Block;
 import com.eatech.puzzle.crypto.model.Colour;
 import com.eatech.puzzle.crypto.model.Node;
@@ -11,27 +12,47 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
+ * This class is to narrow the tree down from are possibilities to the ones that only work in the already positioned
+ * blocks on the board.
+ *
  * Created by jameseaton@hotmail.com
  * Created on 04/01/2016
  */
 public class TreeReducer {
 
   private final Node<Block> tree;
+  private final Colour[] colours;
 
   public TreeReducer(final Node<Block> tree, final Colour[] colours) {
-    this.tree = reduce(tree, getColourPositions(colours));
+    this.colours = colours;
+    this.tree = reduce(tree);
+  }
+
+  private Node<Block> reduce(final Node<Block> tree) {
+    PathBuilder<Block> pathBuilder = new PathBuilder<>(tree);
+    return pathBuilder.build()
+                      .stream()
+                      .filter(this::doesPathFit)
+                      .collect(new TreeCollector());
 
   }
 
-  private Node<Block> reduce(final Node<Block> tree, List<Integer> positions ) {
-   // List<Integer> positions = getColourPositions(colours);
-
-
-
-    return null;
+  // This selects the path that can work with if all the colour blocks can fit into the combination
+  private Boolean doesPathFit(List<Block> path) {
+    List<Boolean> checks = getColourPositions(colours).stream()
+                                                      .map(x -> doesBlockFit(x, path))
+                                                      .collect(Collectors.toList());
+    return checks.stream().allMatch(x -> x.equals(Boolean.TRUE));
   }
 
+  private Boolean doesBlockFit(Integer colourPosition, List<Block> path) {
+    // Does the path cover the colour block already on the board
+    return path.stream().filter(x -> x.getPosition() >= colourPosition && x.getPosition() + (x.getLength() - 1) <= colourPosition)
+                        .findAny()
+                        .isPresent();
+  }
 
+  // Return a list of leaf nodes from the tree
   private List<Node<Block>> calculateLeaves(Node<Block> node, List<Node<Block>> leaves) {
     if (node.isLeaf()) {
       leaves.add(node);
@@ -48,6 +69,7 @@ public class TreeReducer {
 
   }
 
+  // Get the path from root to leaf. Calculated leaf first so needs reversing
   private List<Block> getPath(final Node<Block> leaf) {
     List<Block> path = new ArrayList<>();
     path.add(leaf.getData().get());

@@ -1,9 +1,9 @@
-package com.eatech.puzzle.crypto;
+package com.eatech.puzzle.crypto.tree;
 
+import com.eatech.puzzle.crypto.BaseTreeBuilderTest;
 import com.eatech.puzzle.crypto.model.Block;
 import com.eatech.puzzle.crypto.model.Colour;
 import com.eatech.puzzle.crypto.model.Node;
-import com.eatech.puzzle.crypto.tree.TreeBuilder;
 import org.junit.Test;
 
 import java.util.List;
@@ -44,32 +44,11 @@ public class TreeBuilderTest extends BaseTreeBuilderTest {
     assertFalse(tree.getChildren().stream().findFirst().get().getChildren().isEmpty());
 
     // The nodes are either position 1 or 2
-    assertThat(tree, allOf(hasChildrenPosition(1), hasChildrenPosition(2)));
+    assertThat(tree, allOf(hasChildPosition(1), hasChildPosition(2)));
 
     // The nodes are either position 3 or 5
-    assertThat(tree.getChildren().stream().findFirst().get(), anyOf(hasChildrenPosition(4), hasChildrenPosition(5)));
-    //assertThat(tree.getChildren().get(1), anyOf(hasChildrenPosition(4), hasChildrenPosition(5)));
+    assertThat(tree.getChildren().stream().findFirst().get(), anyOf(hasChildPosition(4), hasChildPosition(5)));
+    //assertThat(tree.getChildren().get(1), anyOf(hasChildPosition(4), hasChildPosition(5)));
   }
 
-
-  /**
-   *
-
-  @Test
-  public void shouldGenerateRowCombinations() {
-    com.eatech.puzzle.crypto.Board board = new com.eatech.puzzle.crypto.Board(5, createTwoOneCombinationForBoard(), createTwoOneCombinationForBoard());
-    com.eatech.puzzle.crypto.tree.TreeBuilder combinationBuilder = new com.eatech.puzzle.crypto.tree.TreeBuilder(board);
-    List<Colour[]> combinations = combinationBuilder.getXCombinations(1);
-    assertEquals("There should be 3 combinations", 3, combinations.size());
-  }
-
-  private List<List<Integer>> createTwoOneCombinationForBoard() {
-    List<Integer> oneTwoCombinations = IntStream.of(2,1).boxed().collect(Collectors.toList());
-    List<List<Integer>> rows = new ArrayList<>(5);
-    for (int i = 0;i<5;i++) {
-      rows.add(oneTwoCombinations);
-    }
-    return rows;
-  }
-   */
 }

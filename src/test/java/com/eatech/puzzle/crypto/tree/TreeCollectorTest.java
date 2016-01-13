@@ -1,8 +1,8 @@
-package com.eatech.puzzle.crypto;
+package com.eatech.puzzle.crypto.tree;
 
+import com.eatech.puzzle.crypto.BaseTreeBuilderTest;
 import com.eatech.puzzle.crypto.model.Block;
 import com.eatech.puzzle.crypto.model.Node;
-import com.eatech.puzzle.crypto.tree.TreeCollector;
 import org.hamcrest.CoreMatchers;
 import org.junit.Test;
 
